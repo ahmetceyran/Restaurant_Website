@@ -17,6 +17,8 @@ use Illuminate\Support\Facades\Route;
 
 Route::get('/', [HomeController::class, 'index']);
 
+Route::get('/redirect', [HomeController::class, 'redirect']);
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
