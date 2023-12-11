@@ -22,6 +22,10 @@ Route::get('/redirect', [HomeController::class, 'redirect']);
 
 Route::get('/users', [AdminController::class, 'users']);
 
+Route::get('/foodmenu', [AdminController::class, 'foodmenu']);
+
+Route::post('/add_food', [AdminController::class, 'add_food']);
+
 Route::get('/delete_user/{id}', [AdminController::class, 'delete_user']);
 
 Route::middleware([

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Food;
 use App\Models\User;
 use Illuminate\Http\Request;
 
@@ -24,6 +25,37 @@ class AdminController extends Controller
 
         return redirect()->back();
 
+
+    }
+
+    public function foodmenu()
+    {
+
+        return view('admin.foodmenu');
+
+    }
+
+    public function add_food(Request $request)
+    {
+
+        $data = new food;
+
+        $data->title = $request->title;
+        $data->price = $request->price;
+        $data->description = $request->description;
+
+        $image=$request->image;
+
+        $imagename = time().'.'.$image->getClientOriginalExtension();
+
+        $request->image->move('foodimage', $imagename);
+
+        $data->image = $imagename;
+        
+
+        $data->save();
+
+        return redirect()->back();
 
     }
 
