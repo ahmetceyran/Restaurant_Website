@@ -38,6 +38,42 @@
 
         }
 
+        th,td
+        {
+
+            padding: 10px; 
+            font-size: 15px; 
+            color: white; 
+            border: 1px solid; 
+            width: 125px;
+
+        }
+
+        .table_deg
+        {
+
+            border: 1px solid white;
+            width: %80;
+            text-align: center;
+            margin-left: 10px;
+
+        }
+
+        .th_deg
+        {
+
+            background-color: grey;
+
+        }
+
+        .img_deg
+        {
+
+            height: 100px;
+            width: 100px;
+
+        }
+
     </style>
     
   </head>
@@ -79,6 +115,44 @@
                 </div>
 
             </form>
+
+
+            <div style="padding-bottom: 15px;">
+            
+                <h1 class="title_deg">All Foods</h1>
+    
+    
+                <table class="table_deg">
+    
+                    <tr class="th_deg">
+    
+                        <th>Title</th>
+                        <th>Price</th>
+                        <th>Description</th>
+                        <th>Image</th>
+                        <th>Action</th>
+    
+                    </tr>
+    
+                    @foreach ($data as $data)
+
+                    <tr>
+    
+                        <td>{{$data->title}}</td>
+                        <td>{{$data->price}}</td>
+                        <td>{{$data->description}}</td>
+                        <td><img class="img_deg" src="/foodimage/{{$data->image}}"></td>
+    
+                        <td><a href="{{url('delete_food', $data->id)}}" class="btn btn-danger" onclick="return confirm('Are You Sure To Delete This Food?')">Delete</a></td>
+
+    
+                    </tr>
+
+                    @endforeach
+    
+                </table>
+    
+            </div>
 
 
         </div>

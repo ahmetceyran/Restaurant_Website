@@ -30,8 +30,9 @@ class AdminController extends Controller
 
     public function foodmenu()
     {
+        $data = food::all();
 
-        return view('admin.foodmenu');
+        return view('admin.foodmenu', compact('data'));
 
     }
 
@@ -54,6 +55,16 @@ class AdminController extends Controller
         
 
         $data->save();
+
+        return redirect()->back();
+
+    }
+
+    public function delete_food($id)
+    {
+        $data = food::find($id);
+
+        $data->delete();
 
         return redirect()->back();
 

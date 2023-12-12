@@ -68,7 +68,7 @@
 
         <div style="position:relative; margin:0 auto; clear:left; height:auto; z-index: 0; text-align:center;">
             
-            <h1 class="title_deg">All Posts</h1>
+            <h1 class="title_deg">All Users</h1>
 
 
             <table class="table_deg">
