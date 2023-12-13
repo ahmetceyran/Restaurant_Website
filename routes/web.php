@@ -28,11 +28,15 @@ Route::get('/delete_food/{id}', [AdminController::class, 'delete_food']);
 
 Route::post('/add_food', [AdminController::class, 'add_food']);
 
+Route::get('/viewreservation', [AdminController::class, 'viewreservation']);
+
 Route::get('/delete_user/{id}', [AdminController::class, 'delete_user']);
 
 Route::get('/update_view/{id}', [AdminController::class, 'update_view']);
 
 Route::post('/update_food/{id}', [AdminController::class, 'update_food']);
+
+Route::post('/reservation', [HomeController::class, 'reservation']);
 
 Route::middleware([
     'auth:sanctum',

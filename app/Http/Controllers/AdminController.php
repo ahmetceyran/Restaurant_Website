@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Food;
 use App\Models\User;
+use App\Models\Reservation;
 use Illuminate\Http\Request;
 
 class AdminController extends Controller
@@ -105,5 +106,14 @@ class AdminController extends Controller
         return redirect()->back();
 
     }
+
+    public function viewreservation()
+    {
+        $data = reservation::all();
+
+        return view('admin.admin_reservation', compact('data'));
+
+    }
+
 
 }
