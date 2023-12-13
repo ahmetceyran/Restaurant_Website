@@ -131,6 +131,7 @@
                         <th>Description</th>
                         <th>Image</th>
                         <th>Action</th>
+                        <th>Action 2</th>
     
                     </tr>
     
@@ -145,6 +146,7 @@
     
                         <td><a href="{{url('delete_food', $data->id)}}" class="btn btn-danger" onclick="return confirm('Are You Sure To Delete This Food?')">Delete</a></td>
 
+                        <td><a href="{{url('update_view', $data->id)}}" class="btn btn-warning">Update</a></td>
     
                     </tr>
 
