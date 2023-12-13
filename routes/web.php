@@ -28,6 +28,10 @@ Route::get('/delete_food/{id}', [AdminController::class, 'delete_food']);
 
 Route::post('/add_food', [AdminController::class, 'add_food']);
 
+Route::post('/add_chef', [AdminController::class, 'add_chef']);
+
+Route::get('/viewchef', [AdminController::class, 'viewchef']);
+
 Route::get('/viewreservation', [AdminController::class, 'viewreservation']);
 
 Route::get('/delete_user/{id}', [AdminController::class, 'delete_user']);

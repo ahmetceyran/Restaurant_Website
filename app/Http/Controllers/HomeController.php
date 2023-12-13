@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Chef;
 use App\Models\Food;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
@@ -13,14 +14,17 @@ class HomeController extends Controller
     public function index()
     {
         $data = food::all();
+        $data2 = chef::all();
 
-        return view('home', compact('data'));
+        return view('home', compact('data', 'data2'));
 
     }
 
     public function redirect()
     {
         $data = food::all();
+
+        $data2 = chef::all();
 
         $usertype = Auth::user()->usertype;
 
@@ -30,7 +34,7 @@ class HomeController extends Controller
         }
         else
         {
-            return view('home', compact('data'));
+            return view('home', compact('data', 'data2'));
         }
 
     }
