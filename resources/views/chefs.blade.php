@@ -22,7 +22,7 @@
                             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
                             <li><a href="#"><i class="fa fa-instagram"></i></a></li>
                         </ul>
-                        <img style="height: 300px; width: 330px;" src="chefimage/{{$data2->image}}" alt="Chef #1">
+                        <img style="margin: auto; height: 300px; width: 330px;" src="chefimage/{{$data2->image}}" alt="Chef #1">
                     </div>
                     <div class="down-content">
                         <h4>{{$data2->name}}</h4>

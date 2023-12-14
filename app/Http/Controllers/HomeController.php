@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Cart;
 use App\Models\Chef;
 use App\Models\Food;
 use App\Models\Reservation;
@@ -34,7 +35,11 @@ class HomeController extends Controller
         }
         else
         {
-            return view('home', compact('data', 'data2'));
+            $user_id = Auth::id();
+
+            $count = cart::where('user_id', $user_id)->count();
+
+            return view('home', compact('data', 'data2', 'count'));
         }
 
     }
@@ -55,6 +60,33 @@ class HomeController extends Controller
             $data->message = $request->message;
 
             $data->save();
+
+            return redirect()->back();
+        }
+        else
+        {
+            return redirect('login');
+        }
+
+        
+
+    }
+
+    public function add_cart(Request $request, $id)
+    {
+
+        if(Auth::id())
+        {
+            $userdata = Auth::user();
+
+            $cart = new cart;
+
+            $cart->user_id = $userdata->id;
+            $cart->user_name = $userdata->name;
+            $cart->food_id = $id;
+            $cart->quantity = $request->quantity;
+
+            $cart->save();
 
             return redirect()->back();
         }

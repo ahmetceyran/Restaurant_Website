@@ -48,6 +48,8 @@ Route::post('/update_chef/{id}', [AdminController::class, 'update_chef']);
 
 Route::post('/reservation', [HomeController::class, 'reservation']);
 
+Route::post('/add_cart/{id}', [HomeController::class, 'add_cart']);
+
 Route::middleware([
     'auth:sanctum',
     config('jetstream.auth_session'),
