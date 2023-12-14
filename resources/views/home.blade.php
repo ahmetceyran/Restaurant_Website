@@ -84,14 +84,16 @@ https://templatemo.com/tm-558-klassy-cafe
                             <!-- <li class=""><a rel="sponsored" href="https://templatemo.com" target="_blank">External URL</a></li> -->
                             <li class="scroll-to-section"><a href="#reservation">Contact Us</a></li> 
 
-                            <li class="scroll-to-section"><a href="#reservation">
+                            <li class="scroll-to-section">
                                 @auth
+                                <a href="{{url('show_cart', Auth::user()->id)}}">
                                     Cart [{{$count}}]
+                                </a>
                                 @endauth
                                 @guest
                                     Cart[0]
                                 @endguest
-                            </a></li> 
+                            </li> 
 
                             <li>
 

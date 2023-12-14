@@ -99,5 +99,16 @@ class HomeController extends Controller
 
     }
 
+    public function show_cart(Request $request, $id)
+    {
+
+        $count = cart::where('user_id', $id)->count();
+
+        $data = cart::where('user_id', $id)->join('food', 'carts.food_id', '=', 'food.id')->get();
+
+        return view('show_cart', compact('count', 'data'));
+
+    }
+
 
 }
