@@ -6,6 +6,8 @@
 <html lang="en">
   <head>
     <!-- Required meta tags -->
+
+    <base href="/public">
     
     @include('admin.css')
 
@@ -84,73 +86,40 @@
 
         <div style="position:relative; margin:0 auto; clear:left; height:auto; z-index: 0; text-align:center;">
 
-            <h1 class="title_deg">Add Chef</h1>
+            <h1 class="title_deg">Update Chef</h1>
 
-            <form action="{{url('add_chef')}}" method="POST" enctype="multipart/form-data">
+            <form action="{{url('update_chef', $data->id)}}" method="POST" enctype="multipart/form-data">
 
                 @csrf
 
                 <div class="div_deg">
                     <label>Name : </label>
-                    <input style="color: black;" type="text" name="name" placeholder="Chef's Name" required>
+                    <input style="color: black;" type="text" name="name" value="{{$data->name}}" required>
                 </div>
 
                 <div class="div_deg">
-                    <label>Speciality : </label>
-                    <input style="color: black;" type="text" name="speciality" placeholder="Speciality" required>
+                    <label>Price : </label>
+                    <input style="color: black;" type="text" name="speciality" value="{{$data->speciality}}" required>
                 </div>
 
                 <div class="div_deg">
-                    <label>Image : </label>
-                    <input type="file" name="image" required>
+                    <label>Old Image : </label>
+                    <img style="margin: auto; height: 150px; width: 200px;" src="/chefimage/{{$data->image}}">
                 </div>
 
                 <div class="div_deg">
-                    <input type="submit" value="Save" class="btn btn-success">
+                    <label>New Image : </label>
+                    <input type="file" name="image">
+                </div>
+
+                <div class="div_deg">
+                    <input type="submit" value="Update" class="btn btn-success">
                 </div>
 
             </form>
 
-            <div style="padding-bottom: 15px;">
-            
-                <h1 class="title_deg">All Foods</h1>
-    
-    
-                <table class="table_deg">
-    
-                    <tr class="th_deg">
-    
-                        <th>Name</th>
-                        <th>Speciality</th>
-                        <th>Image</th>
-                        <th>Action</th>
-                        <th>Action 2</th>
-    
-                    </tr>
-    
-                    @foreach ($data as $data)
-
-                    <tr>
-    
-                        <td>{{$data->name}}</td>
-                        <td>{{$data->speciality}}</td>
-                        <td><img class="img_deg" src="/chefimage/{{$data->image}}"></td>
-    
-                        <td><a href="{{url('delete_chef', $data->id)}}" class="btn btn-danger" onclick="return confirm('Are You Sure To Delete This Chef?')">Delete</a></td>
-
-                        <td><a href="{{url('updatechef_view', $data->id)}}" class="btn btn-warning">Update</a></td>
-    
-                    </tr>
-
-                    @endforeach
-    
-                </table>
-    
-            </div>
-
 
         </div>
-
         
 
     </div>
