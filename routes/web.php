@@ -52,8 +52,9 @@ Route::post('/add_cart/{id}', [HomeController::class, 'add_cart']);
 
 Route::get('/show_cart/{id}', [HomeController::class, 'show_cart']);
 
-
 Route::get('/remove_cart/{id}', [HomeController::class, 'remove_cart']);
+
+Route::post('/order_confirm', [HomeController::class, 'order_confirm']);
 
 Route::middleware([
     'auth:sanctum',

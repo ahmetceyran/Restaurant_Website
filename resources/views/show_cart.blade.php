@@ -205,13 +205,26 @@ https://templatemo.com/tm-558-klassy-cafe
 
             @foreach ($data as $data)
            
+            <form action="{{url('order_confirm')}}" method="POST">
+
+                @csrf
+
             <?php $cartprice=0 ?>
 
             <tr>
 
-                <td>{{$data->title}}</td>
-                <td>{{$data->price}}</td>
-                <td>{{$data->quantity}}</td>
+                <td>
+                    <input type="text" name="foodname[]" value="{{$data->title}}" hidden>
+                    {{$data->title}}
+                </td>
+                <td>
+                    <input type="text" name="price[]" value="{{$data->price}}" hidden>
+                    {{$data->price}}
+                </td>
+                <td>
+                    <input type="text" name="quantity[]" value="{{$data->quantity}}" hidden>
+                    {{$data->quantity}}
+                </td>
                 <td>
                     <img class="img_size" src="/foodimage/{{$data->image}}">
                 </td>
@@ -249,7 +262,7 @@ https://templatemo.com/tm-558-klassy-cafe
 
         <div>
 
-            <a class="btn btn-danger" id="order">Order Now</a>
+            <a style="background-color: red;" class="btn btn-danger" type="button" id="order">Order Now</a>
 
         </div>
 
@@ -277,11 +290,13 @@ https://templatemo.com/tm-558-klassy-cafe
 
                     <input style="background-color: green;" type="submit" class="btn btn-success" value="Order Confirm">
 
-                    <button id="close" style="background-color: red;" class="btn btn-danger">Close</button>
+                    <button id="close" type="button" style="background-color: red;" class="btn btn-danger">Close</button>
 
                 </div>
 
         </div>
+
+    </form>
 
 
       </div>
