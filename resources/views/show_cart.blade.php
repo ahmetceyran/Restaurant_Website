@@ -31,6 +31,8 @@ https://templatemo.com/tm-558-klassy-cafe
 
     <link rel="stylesheet" href="assets/css/lightbox.css">
 
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
     <style type="text/css">
 
         .center
@@ -65,6 +67,22 @@ https://templatemo.com/tm-558-klassy-cafe
         {
             font-size: 20px;
             padding: 40px;
+        }
+
+        .div_deg
+        {
+
+            text-align: center;
+            padding: 30px;
+
+        }
+
+        label
+        {
+
+            display: inline-block;
+            width: 200px;
+
         }
 
     </style>
@@ -231,11 +249,37 @@ https://templatemo.com/tm-558-klassy-cafe
 
         <div>
 
-            <h1 style="font-size: 25px;, padding-bottom: 15px;">Proceed to Order</h1>
+            <a class="btn btn-danger" id="order">Order Now</a>
 
-            <a href="{{url('cash_order')}}" class="btn btn-danger">Cash On Delivery</a>
+        </div>
 
-            <a href="{{url('stripe', $totalprice)}}" class="btn btn-danger">Pay Using Card</a>
+        <div style="padding-top: 30px; display: none;" id="appear">
+
+                <div class="div_deg">
+
+                    <label>Name: </label>
+                    <input type="text" name="name" placeholder="Name" required>
+
+                </div>
+                <div class="div_deg">
+
+                    <label>Phone: </label>
+                    <input type="number" name="phone" placeholder="Phone Number" required>
+
+                </div>
+                <div class="div_deg">
+
+                    <label>Address: </label>
+                    <input type="text" name="address" placeholder="Address" required>
+
+                </div>
+                <div class="div_deg">
+
+                    <input style="background-color: green;" type="submit" class="btn btn-success" value="Order Confirm">
+
+                    <button id="close" style="background-color: red;" class="btn btn-danger">Close</button>
+
+                </div>
 
         </div>
 
@@ -243,6 +287,31 @@ https://templatemo.com/tm-558-klassy-cafe
       </div>
 
 
+    <script type="text/javascript">
+
+        $("#order").click(
+
+            function()
+            {
+
+                $("#appear").show();
+
+            }
+
+        );
+
+        $("#close").click(
+
+            function()
+            {
+
+                $("#appear").hide();
+
+            }
+
+        );
+
+    </script>
 
     <!-- jQuery -->
     <script src="assets/js/jquery-2.1.0.min.js"></script>
