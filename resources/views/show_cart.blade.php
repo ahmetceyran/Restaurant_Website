@@ -197,9 +197,7 @@ https://templatemo.com/tm-558-klassy-cafe
                 <td>
                     <img class="img_size" src="/foodimage/{{$data->image}}">
                 </td>
-                <td>
-                    <a class="btn btn-danger" onclick="return confirm('Are You Sure?')" href="{{url('remove_cart')}}">Remove</a>
-                </td>
+                
 
             </tr>
 
@@ -207,6 +205,18 @@ https://templatemo.com/tm-558-klassy-cafe
 
             <?php $totalprice=$totalprice + $cartprice ?>
             
+            @endforeach
+
+            @foreach ($data2 as $data2)
+
+            <tr style="position: relative; top: -200px; right: -430px;">
+
+                <td>
+                    <a class="btn btn-danger" onclick="return confirm('Are You Sure?')" href="{{url('remove_cart', $data2->id)}}">Remove</a>
+                </td>
+
+            </tr>
+                
             @endforeach
 
             
