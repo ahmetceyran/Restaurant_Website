@@ -17,7 +17,7 @@
             font-size: 30px;
             font-weight: bold;
             text-align: center;
-            padding: 30px;
+            padding: 15px;
             color: white;
 
         }
@@ -64,6 +64,15 @@
             
                 <h1 class="title_deg">All Orders</h1>
     
+                <form style="padding-bottom: 15px;" action="{{url('search')}}" method="GET">
+
+                    @csrf
+
+                    <input type="text" name="search" style="color: black;" placeholder="Order to search">
+
+                    <input type="submit" value="Search" class="btn btn-primary">
+
+                </form>
     
                 <table class="table_deg">
     

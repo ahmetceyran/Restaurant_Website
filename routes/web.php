@@ -38,6 +38,8 @@ Route::get('/viewreservation', [AdminController::class, 'viewreservation']);
 
 Route::get('/vieworders', [AdminController::class, 'vieworders']);
 
+Route::get('/search', [AdminController::class, 'search']);
+
 Route::get('/delete_user/{id}', [AdminController::class, 'delete_user']);
 
 Route::get('/update_view/{id}', [AdminController::class, 'update_view']);
