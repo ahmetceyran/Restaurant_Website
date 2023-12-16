@@ -8,6 +8,7 @@ use App\Models\Order;
 use App\Models\User;
 use App\Models\Reservation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class AdminController extends Controller
 {
@@ -111,9 +112,20 @@ class AdminController extends Controller
 
     public function viewreservation()
     {
-        $data = reservation::all();
+        if(Auth::id())
+        {
 
-        return view('admin.admin_reservation', compact('data'));
+            $data = reservation::all();
+
+            return view('admin.admin_reservation', compact('data'));
+
+        }
+        else
+        {
+
+            return redirect('login');
+
+        }
 
     }
 
