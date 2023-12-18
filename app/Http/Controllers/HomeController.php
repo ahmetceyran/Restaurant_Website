@@ -38,7 +38,11 @@ class HomeController extends Controller
 
     public function redirect()
     {
-        $data = food::all();
+
+        if(Auth::id())
+        {
+
+            $data = food::all();
 
         $data2 = chef::all();
 
@@ -56,6 +60,15 @@ class HomeController extends Controller
 
             return view('home', compact('data', 'data2', 'count'));
         }
+
+        }
+        else
+        {
+
+            return redirect('/');
+
+        }
+        
 
     }
 

@@ -15,9 +15,22 @@ class AdminController extends Controller
     
     public function users()
     {
-        $data = User::all();
 
-        return view('admin.users', compact('data'));
+        if(Auth::id())
+        {
+
+            $data = User::all();
+
+            return view('admin.users', compact('data'));
+
+        }
+        else
+        {
+
+            return redirect('login');
+
+        }
+        
 
     }
 
@@ -34,10 +47,22 @@ class AdminController extends Controller
 
     public function foodmenu()
     {
-        $data = food::all();
+
+        if(Auth::id())
+        {
+
+            $data = food::all();
 
         return view('admin.foodmenu', compact('data'));
 
+        }
+        else
+        {
+
+            return redirect('login');
+
+        }
+        
     }
 
     public function add_food(Request $request)
@@ -76,9 +101,22 @@ class AdminController extends Controller
 
     public function update_view($id)
     {
-        $data = food::find($id);
+
+        if(Auth::id())
+        {
+
+            $data = food::find($id);
 
         return view('admin.update_view', compact('data'));
+
+        }
+        else
+        {
+
+            return redirect('login');
+
+        }        
+        
 
     }
 
@@ -112,6 +150,7 @@ class AdminController extends Controller
 
     public function viewreservation()
     {
+
         if(Auth::id())
         {
 
@@ -131,9 +170,22 @@ class AdminController extends Controller
 
     public function viewchef()
     {
-        $data = chef::all();
+
+        if(Auth::id())
+        {
+
+            $data = chef::all();
 
         return view('admin.adminchef', compact('data'));
+
+        }
+        else
+        {
+
+            return redirect('login');
+
+        }
+        
 
     }
 
@@ -172,9 +224,21 @@ class AdminController extends Controller
 
     public function updatechef_view($id)
     {
+
+        if(Auth::id())
+        {
+            
         $data = chef::find($id);
 
         return view('admin.updatechef_view', compact('data'));
+
+        }
+        else
+        {
+
+            return redirect('login');
+
+        }
 
     }
 
@@ -207,10 +271,21 @@ class AdminController extends Controller
 
     public function vieworders()
     {
-        
-        $data = order::all();
+
+        if(Auth::id())
+        {
+            
+            $data = order::all();
 
         return view('admin.orders', compact('data'));
+
+        }
+        else
+        {
+
+            return redirect('login');
+
+        }
 
     }
 
