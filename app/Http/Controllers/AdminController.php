@@ -19,10 +19,23 @@ class AdminController extends Controller
         if(Auth::id())
         {
 
-            $data = User::all();
+            $usertype = Auth::user()->usertype;
 
-            return view('admin.users', compact('data'));
+            if($usertype == '1')
+            {
+            
+                $data = User::all();
 
+                return view('admin.users', compact('data'));
+        
+            }
+            else
+            {
+            
+                return redirect()->back();
+
+            }
+            
         }
         else
         {
@@ -51,10 +64,23 @@ class AdminController extends Controller
         if(Auth::id())
         {
 
-            $data = food::all();
+            $usertype = Auth::user()->usertype;
 
-        return view('admin.foodmenu', compact('data'));
+            if($usertype == '1')
+            {
+            
+                $data = food::all();
 
+                return view('admin.foodmenu', compact('data'));
+        
+            }
+            else
+            {
+            
+                return redirect()->back();
+
+            }
+            
         }
         else
         {
@@ -105,9 +131,22 @@ class AdminController extends Controller
         if(Auth::id())
         {
 
-            $data = food::find($id);
+            $usertype = Auth::user()->usertype;
 
-        return view('admin.update_view', compact('data'));
+            if($usertype == '1')
+            {
+            
+                $data = food::find($id);
+
+                return view('admin.update_view', compact('data'));
+        
+            }
+            else
+            {
+            
+                return redirect()->back();
+
+            }  
 
         }
         else
@@ -154,9 +193,22 @@ class AdminController extends Controller
         if(Auth::id())
         {
 
-            $data = reservation::all();
+            $usertype = Auth::user()->usertype;
 
-            return view('admin.admin_reservation', compact('data'));
+            if($usertype == '1')
+            {
+            
+                $data = reservation::all();
+
+                return view('admin.admin_reservation', compact('data'));
+        
+            }
+            else
+            {
+            
+                return redirect()->back();
+
+            }  
 
         }
         else
@@ -174,9 +226,22 @@ class AdminController extends Controller
         if(Auth::id())
         {
 
-            $data = chef::all();
+            $usertype = Auth::user()->usertype;
 
-        return view('admin.adminchef', compact('data'));
+            if($usertype == '1')
+            {
+            
+                $data = chef::all();
+
+                return view('admin.adminchef', compact('data'));
+        
+            }
+            else
+            {
+            
+                return redirect()->back();
+
+            }         
 
         }
         else
@@ -227,10 +292,23 @@ class AdminController extends Controller
 
         if(Auth::id())
         {
-            
-        $data = chef::find($id);
 
-        return view('admin.updatechef_view', compact('data'));
+            $usertype = Auth::user()->usertype;
+
+            if($usertype == '1')
+            {
+            
+                $data = chef::find($id);
+
+                return view('admin.updatechef_view', compact('data'));
+
+            }
+            else
+            {
+            
+                return redirect()->back();
+
+            }
 
         }
         else
@@ -274,10 +352,20 @@ class AdminController extends Controller
 
         if(Auth::id())
         {
-            
-            $data = order::all();
+            $usertype = Auth::user()->usertype;
 
-        return view('admin.orders', compact('data'));
+            if($usertype == '1')
+            {
+                $data = order::all();
+
+                return view('admin.orders', compact('data'));
+            }
+            else
+            {
+            
+                return redirect()->back();
+
+            }   
 
         }
         else
